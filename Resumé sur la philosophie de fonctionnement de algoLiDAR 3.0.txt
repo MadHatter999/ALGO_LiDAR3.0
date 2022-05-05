@@ -1,0 +1,17 @@
+Nous avons choisi de traiter le problème de modélisation de fonctionnement de LiDAR de la manière suivante:
+Pour l'échelle utilisée dans le dessin de la piste, une distance de norme 50 correspond à 1 mètre.
+Nous avons devisé la piste en 8 parties(voir Repère piste.jpeg),
+Après une saisie valide des coordonnes de la voiture, en fonction de son appartenance dans l'une des 8 parties,
+on fait le calcul des intersections des droites générées par l'angle et passant par la voiture avec la piste.
+
+Pour le calcul d'intersection des droites qu'on génère et d'équations y=ax+b avec les droites qui forment la piste qui sont d'équation x=c ou y=d:
+Il suffit de vérifier si (d-b)/a est dans l'intervalle des segments horizontales, soit D1, D2, D3 et D4.
+Et vérifier si ac+b est dans l'intervalle des segments verticatales, soit D5, D6, D7 et D8.
+   
+Pour le calcul d'intersection des droites qu'on génère et d'équations y=ax+b ou x=c avec les quarts des cercles de centre (x0,y0) et de rayon 25:
+On vérifie s'il y a x solution de l'équation (x-x0)²+(ax+b-y0)²=25² 
+		     ou y solution de l'équation (y-y0)²+(c-x0)²=25² 
+S'il y a 2 points d'intersection, on prend le plus loin pour les quarts de cercles du grand rectangle, soit C1, C2, C3 et C4.
+Et on prend le plus proche pour les quarts de cercles du petit rectangle, soit C5, C6, C7 et C8.
+
+
